@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bit_core (1.3.6)
+    bit_core (1.4.0)
       rails (~> 4.1)
       redcarpet (~> 2.3)
 

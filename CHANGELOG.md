@@ -1,3 +1,6 @@
+## 1.4.0 - 2015-02-06
+ * added audio slide model
+
 ## 1.3.6 - 2015-01-31
  * added is_viz column to Content Modules
 
