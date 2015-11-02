@@ -29,6 +29,10 @@ module BitCore
       content_modules.order(:position).last.try(:position) || 0
     end
 
+    def slug_title
+      slug || title
+    end
+
     private
 
     def next_position
