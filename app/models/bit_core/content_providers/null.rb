@@ -10,7 +10,7 @@ module BitCore
       end
 
       def render_current(_options)
-        "Content Module #{ @content_module.title }: Oops, did you expect a
+        "Content Module #{@content_module.title}: Oops, did you expect a
         content provider here?"
       end
 
