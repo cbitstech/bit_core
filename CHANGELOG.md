@@ -1,6 +1,3 @@
-## 1.4.3 - 2015-12-14
- * update position of slides upon deletion
-
 ## 1.4.2 - 2015-02-10
  * adds fk constraint to tools
 
