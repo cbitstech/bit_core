@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module BitCore
@@ -12,13 +13,13 @@ module BitCore
       it "should render markdown as html" do
         subject.body = "# header"
 
-        expect(subject.render_body).to match(/<h1>header<\/h1>/)
+        expect(subject.render_body).to match(%r{<h1>header<\/h1>})
       end
 
       it "should escape html" do
         subject.body = "<div>my content</div>"
 
-        expect(subject.render_body).to match(/<p>my content<\/p>/)
+        expect(subject.render_body).to match(%r{<p>my content<\/p>})
       end
     end
 

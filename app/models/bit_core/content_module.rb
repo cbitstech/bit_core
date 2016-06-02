@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module BitCore
   # A logical unit of content, possibly containing mixed provider types.
   class ContentModule < ActiveRecord::Base
@@ -18,7 +19,7 @@ module BitCore
     # Returns the `ContentProvider` at the given position, or a `Null`
     # `ContentProvider` if none exists.
     def provider(position)
-      content_providers.where(position: position).first ||
+      content_providers.find_by(position: position) ||
         ContentProviders::Null.new(self, position)
     end
 

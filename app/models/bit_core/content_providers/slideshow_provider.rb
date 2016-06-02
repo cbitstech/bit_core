@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module BitCore
   module ContentProviders
     # Defines presentation logic for a Slideshow.
@@ -16,7 +17,7 @@ module BitCore
       end
 
       def slide(position)
-        slideshow.slides.where(position: position).first ||
+        slideshow.slides.find_by(position: position) ||
           BitCore::Slide.new(body: "no slides")
       end
 

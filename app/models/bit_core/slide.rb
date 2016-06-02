@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "redcarpet"
 
 module BitCore
@@ -30,7 +31,7 @@ module BitCore
 
     def update_slide_positions
       slideshow.reload
-        .sort(slideshow.slide_ids)
+               .sort(slideshow.slide_ids)
     end
   end
 end
