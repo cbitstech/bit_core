@@ -1,12 +1,15 @@
 AllCops:
   Exclude:
-    - bit_core.gemspec
-    - Rakefile
     - bin/**/*
+    - config/**/*
     - db/**/*
-    - spec/dummy/bin/**/*
-    - spec/dummy/config/**/*
-    - spec/dummy/db/**/*
+    - gemfiles/**/*
+    - spec/dummy/**/*
+    - vendor/**/*
+  TargetRubyVersion: 2.3
+
+Rails:
+  Enabled: true
 
 Documentation:
   Exclude:

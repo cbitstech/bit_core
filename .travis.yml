@@ -3,4 +3,8 @@ cache: bundler
 sudo: false
 rvm:
   - 2.3.0
-before_script: RAILS_ENV=test bundle exec rake app:db:drop app:db:create app:db:migrate
+gemfile:
+  - Gemfile
+  - gemfiles/Gemfile.rails-5.0-beta
+install: bundle install
+script: RAILS_ENV=test bundle exec rake app:db:drop app:db:create app:db:migrate; bundle exec rake

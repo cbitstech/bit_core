@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20160311210938) do
     t.datetime "updated_at"
     t.string   "type"
     t.boolean  "is_viz",           default: false, null: false
-    t.index ["bit_core_tool_id", "position"], name: "bit_core_content_module_position", unique: true, using: :btree
   end
+
+  add_index "bit_core_content_modules", ["bit_core_tool_id", "position"], name: "bit_core_content_module_position", unique: true, using: :btree
 
   create_table "bit_core_content_providers", force: :cascade do |t|
     t.string   "type",                                       null: false
@@ -47,8 +48,9 @@ ActiveRecord::Schema.define(version: 20160311210938) do
     t.text     "data_attributes"
     t.boolean  "show_next_nav",              default: false, null: false
     t.text     "locals"
-    t.index ["bit_core_content_module_id", "position"], name: "bit_core_content_provider_position", unique: true, using: :btree
   end
+
+  add_index "bit_core_content_providers", ["bit_core_content_module_id", "position"], name: "bit_core_content_provider_position", unique: true, using: :btree
 
   create_table "bit_core_slides", force: :cascade do |t|
     t.string   "title",                                null: false
@@ -60,8 +62,9 @@ ActiveRecord::Schema.define(version: 20160311210938) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "options"
-    t.index ["bit_core_slideshow_id", "position"], name: "bit_core_slide_position", unique: true, using: :btree
   end
+
+  add_index "bit_core_slides", ["bit_core_slideshow_id", "position"], name: "bit_core_slide_position", unique: true, using: :btree
 
   create_table "bit_core_slideshows", force: :cascade do |t|
     t.string   "title",      null: false
@@ -77,8 +80,9 @@ ActiveRecord::Schema.define(version: 20160311210938) do
     t.datetime "updated_at"
     t.integer  "arm_id",                 null: false
     t.string   "type"
-    t.index ["position"], name: "bit_core_tool_position", unique: true, using: :btree
   end
+
+  add_index "bit_core_tools", ["position"], name: "bit_core_tool_position", unique: true, using: :btree
 
   add_foreign_key "bit_core_content_modules", "bit_core_tools", name: "fk_content_modules_tools"
   add_foreign_key "bit_core_content_providers", "bit_core_content_modules", name: "fk_content_providers_modules"

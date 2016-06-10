@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 begin
   require "bundler/setup"
 rescue LoadError
@@ -10,7 +11,7 @@ load "rails/tasks/engine.rake"
 
 Bundler::GemHelper.install_tasks
 
-Dir[File.join(File.dirname(__FILE__), "tasks/**/*.rake")].each {|f| load f }
+Dir[File.join(File.dirname(__FILE__), "tasks/**/*.rake")].each { |f| load f }
 
 require "rspec/core"
 require "rspec/core/rake_task"

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module BitCore
   # A section of an application.
   class Tool < ActiveRecord::Base

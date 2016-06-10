@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module BitCore
   # Modeled after the presenter pattern. Ties data layer to view layer.
   class ContentProvider < ActiveRecord::Base
@@ -43,7 +44,7 @@ module BitCore
     # Returns a human readable string extracted from the ContentProvider class
     # name.
     def pretty_label
-      self.class.to_s.split("::").last.underscore.gsub(/_/, " ")
+      self.class.to_s.split("::").last.underscore.tr("_", " ")
     end
 
     private
@@ -52,14 +53,14 @@ module BitCore
       path = File.join(Rails.root, "app", "views", template_path || "")
       return if Dir.exist?(path)
 
-      errors.add(:template_path, "not found at #{ path }")
+      errors.add(:template_path, "not found at #{path}")
     end
 
     def data_class_exists
       return unless data_class_name && !data_class
 
       errors.add(:data_class_name,
-                 "unable to find class '#{ data_class_name }'")
+                 "unable to find class '#{data_class_name}'")
     end
 
     # rubocop:disable Metrics/AbcSize
@@ -72,7 +73,7 @@ module BitCore
       return if unknown_attrs.count == 0
 
       errors.add(:data_attributes, "must be attributes on the model class " \
-                 "(unrecognized: #{ unknown_attrs.join(', ') })")
+                 "(unrecognized: #{unknown_attrs.join(', ')})")
     end
     # rubocop:enable Metrics/AbcSize
   end
