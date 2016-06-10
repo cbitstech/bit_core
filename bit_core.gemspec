@@ -22,10 +22,16 @@ Gem::Specification.new do |s|
 
   s.test_files = Dir["spec/**/*"]
 
+  s.add_runtime_dependency "actionpack", "~> 5.0.0.rc1"
+  s.add_runtime_dependency "actionview", "~> 5.0.0.rc1"
+  s.add_runtime_dependency "activerecord", "~> 5.0.0.rc1"
+  s.add_runtime_dependency "activesupport", "~> 5.0.0.rc1"
+  s.add_runtime_dependency "railties", "~> 5.0.0.rc1"
   s.add_runtime_dependency "redcarpet", [">= 3.3.2", "< 3.4"]
 
   s.add_development_dependency "pg", [">= 0.18", "< 1.0"]
   s.add_development_dependency "spring", "~> 1"
   s.add_development_dependency "rspec-rails", "~> 3.0"
   s.add_development_dependency "rubocop", "= 0.40"
+  s.add_development_dependency "brakeman"
 end
