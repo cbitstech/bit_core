@@ -13,7 +13,10 @@ module BitCore
     validates :position, numericality: { greater_than_or_equal_to: 1 }
     validates :position, uniqueness: { scope: :bit_core_slideshow_id }
 
+    before_validation :normalize_options
     after_destroy :update_slide_positions
+
+    serialize :options
 
     def render_body
       return "" if body.nil?
@@ -28,6 +31,10 @@ module BitCore
     end
 
     private
+
+    def normalize_options
+      self.options = options.try(:to_h)
+    end
 
     def update_slide_positions
       slideshow.reload

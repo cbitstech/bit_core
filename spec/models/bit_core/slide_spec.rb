@@ -23,6 +23,27 @@ module BitCore
       end
     end
 
+    describe "when validated" do
+      context "if the options attribute is present" do
+        it "normalizes it" do
+          hashable = Struct.new("Hashable", :to_h).new("foo": "bar")
+          subject.options = hashable
+          subject.valid?
+
+          expect(subject.options).to eq("foo": "bar")
+        end
+      end
+
+      context "if the options attribute isn't present" do
+        it "leaves it as nil" do
+          subject.options = nil
+          subject.valid?
+
+          expect(subject.options).to be_nil
+        end
+      end
+    end
+
     describe "when destroyed" do
       let(:slideshow) { bit_core_slideshows(:slideshow1) }
       let(:slide) { bit_core_slides(:slide2) }
